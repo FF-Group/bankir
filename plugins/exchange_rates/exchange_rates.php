@@ -246,7 +246,7 @@ class Google_Maps_Widget extends WP_Widget{
     {
         $instance = array();
         $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        $instance['iframe_area'] = (!empty($new_instance['iframe_area'])) ? $new_instance['iframe_area'] : '' ;//Bla bla comment
+        $instance['iframe_area'] = (!empty($new_instance['iframe_area'])) ? $new_instance['iframe_area'] : '' ;//Bla bla com
 
         return $instance;
     }
