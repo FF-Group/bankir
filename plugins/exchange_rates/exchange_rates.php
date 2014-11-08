@@ -170,7 +170,7 @@ function layout_shortcode()
                 <?php
                 endwhile; ?>
                 
-                <b><div style="padding: 0px 0px 0px 15px;"><?php echo __('Last changes: ') . $output_date;?></div></b>
+                <b><div style="padding: 0px 0px 0px 15px; font-size: larger"><?php echo __('Last changes: ') . $output_date;?></div></b>
                 
             </table>
         </div>
