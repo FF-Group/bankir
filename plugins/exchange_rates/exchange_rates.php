@@ -51,7 +51,7 @@ function currency_meta_box()
 
     add_meta_box(
         'wholesale',
-        __('Wholesale'),
+        __('Indicative rate'),
         'wholesale_box_content',
         'currency',
         'normal',
@@ -82,7 +82,7 @@ function wholesale_box_content($post)
     $wholesale_purchase = get_post_meta($post->ID, 'wholesale_purchase', true);
     $wholesale_sale = get_post_meta($post->ID, 'wholesale_sale', true);
     ?>
-    <p><label for="wholesale_purchase"><?php echo __('Wholesale purchase'); ?></label></p>
+    <p><label for="wholesale_purchase"><?php echo __('Indivative rate'); ?></label></p>
     <input type="text" id="wholesale_purchase" name="wholesale_purchase"
            value="<?php if ($wholesale_purchase && !empty($wholesale_purchase)) echo $wholesale_purchase; ?>"/>
 
@@ -178,7 +178,7 @@ function layout_shortcode()
             <table class="features-table">
                 <tr>
                     <th></th>
-                    <th colspan="2"><?php echo __('Wholesale'); ?></th>
+                    <th colspan="2"><?php echo __('Indicative rate'); ?></th>
                 </tr>
                 <tr class="second-table-head">
                     <td></td>

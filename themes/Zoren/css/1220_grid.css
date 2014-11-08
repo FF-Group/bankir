@@ -19,8 +19,11 @@
 .block-1-2-3-4-5,.block-2-3-4-5-6 {width: 980px;} /* Five-Sixths */
 
 /* 4-Col Grid Sizes */
-.block-7,.block-8,.block-9,.block-10 {width: 280px;} /* Quarters */
-.block-7-8-9,.block-8-9-10 {width:880px;} /* Three-Quarters */
+.block-8,.block-9,.block-10 {width: 280px;} /* Quarters */
+.block-7-8-9,.block-8-9-10 {width:900px;} /* Three-Quarters */
+.block-7{
+    width: 250px;
+}
 
 /* 6-Col/4-Col Shared Grid Sizes */
 .block-1-2-3,.block-2-3-4,.block-3-4-5,.block-4-5-6, .block-7-8,.block-8-9,.block-9-10 {width: 580px;} /* Halves */

@@ -45,6 +45,7 @@ h2.site-description{
 	font-size: 14px;
 	z-index:100;
 	position:relative;
+    padding-top: 11px;
 	}
 	
 #submenu {
@@ -72,18 +73,32 @@ h2.site-description{
 	}
 	
 #submenu li a {
-	color: #6c6c6c;
+	color: #000000;
 	display: block;
     margin: 0;
-	padding: 19px 10px 19px 10px;
+	padding: 5px 10px 5px 10px;
 	text-decoration: none;
 	position: relative;
+    border-radius: 8px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px gray;
+    font-size: 18px;
 	}
 
-#submenu li a:hover, #submenu li a:active, #submenu .current_page_item a  {
-	color: #444;
-	
-	}
+#submenu li:not(:first-child) a {
+    margin-left: 8px;
+}
+
+#submenu li a:hover, #submenu li a:active  {
+    color: #000000;
+    background-color: #585858;
+}
+
+#submenu .current_page_item a{
+    color: #000;
+    background-color: #585858;
+}
+
 	
 #submenu li a.sf-with-ul {
 	padding-right: 10px;
