@@ -138,7 +138,7 @@ function layout_shortcode()
     ob_start();
     if ($query->have_posts()): ?>
         <div class="retail-exchange">
-            <table>
+            <table class="features-table">
                 <tr>
                     <th></th>
                     <th colspan="2"><?php echo __('Retail'); ?></th>
@@ -170,12 +170,12 @@ function layout_shortcode()
                 <?php
                 endwhile; ?>
                 
-                <?php echo __('Last changes: ') . $output_date;?>
+                <b><div style="padding: 0px 0px 0px 15px;"><?php echo __('Last changes: ') . $output_date;?></div></b>
                 
             </table>
         </div>
         <div class="wholesale-exchange">
-            <table>
+            <table class="features-table">
                 <tr>
                     <th></th>
                     <th colspan="2"><?php echo __('Wholesale'); ?></th>

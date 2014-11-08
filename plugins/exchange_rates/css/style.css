@@ -1,7 +1,59 @@
 .retail-exchange th{
     text-align: center;
+
+}
+
+.retail-exchange {
+
+    font-family:Georgia1, Georgia, serif; 
+    clear:both;
+    margin: 0;
+  
 }
 
 .wholesale-exchange th{
     text-align: center;
+
+}
+
+.wholesale-exchange {
+    text-align: center;
+    font-family:Georgia1, Georgia, serif; 
+    clear:both;
+    margin: 0;
+}
+
+.edit-link {
+    font-family:Georgia1, Georgia, serif; 
+    text-align: center;
+    position: relative;
+    padding: 5px 15px 5px 15px;
+    display:inline-block;
+    color: #000;
+    background: #f3961c;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+    background: -moz-linear-gradient(#f9d835, #f3961c);
+    background: -o-linear-gradient(#f9d835, #f3961c);
+    background: linear-gradient(#f9d835, #f3961c);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    
+}
+
+.edit-link:hover {
+    background: #f9863c;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f5d425), to(#f9863c));
+    background: -moz-linear-gradient(#f5d425, #f9863c);
+    background: -o-linear-gradient(#f5d425, #f9863c);
+    background: linear-gradient(#f5d425, #f9863c);
+
+}
+
+.post-edit-link {
+    color: #000;
+    text-shadow: 1px 1px 0px #eee;
+
+
 }
