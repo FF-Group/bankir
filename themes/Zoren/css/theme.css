@@ -7,7 +7,12 @@ img.scale, img.responsive {
 /* Header */
 
 #masthead{
-	margin: 0px 0px;
+	margin-top: 25px;
+	background-color: rgba(150, 150, 150, 0.8);
+	padding-bottom: 25px;
+	padding-left: 20px;
+	width: 720x;
+	
 }
 
 .logo{}
@@ -37,7 +42,6 @@ h2.site-description{
 
 	
 #botmenu{
-
 	font-size: 14px;
 	z-index:100;
 	position:relative;
