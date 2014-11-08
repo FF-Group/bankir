@@ -68,5 +68,5 @@
 	</div>
 	
 	</header><!-- #masthead .site-header -->
-	<div class="thickline block-7-8-9-10"></div>
+<!--	<div class="thickline block-7-8-9-10"></div>-->
 	<div id="main" class="site-main row">
