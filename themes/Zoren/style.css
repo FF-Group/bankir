@@ -522,3 +522,7 @@ object {
 .site-main{
     margin-top: 25px;
 }
+
+.home #main .entry-content .edit-link {
+    display: none;
+}

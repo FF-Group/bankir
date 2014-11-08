@@ -66,11 +66,11 @@ function retail_box_content($post)
     $retail_sale = get_post_meta($post->ID, 'retail_sale', true);
 
     ?>
-    <p><label for="retail_purchase"><?php echo __('Retail purchase'); ?></label></p>
+    <p><label for="retail_purchase"><?php echo __('Purchase'); ?></label></p>
     <input type="text" id="retail_purchase" name="retail_purchase"
            value="<?php if ($retail_purchase && !empty($retail_purchase)) echo $retail_purchase; ?>"/>
 
-    <p><label for="retail_sale"><?php echo __('Retail sale'); ?></label></p>
+    <p><label for="retail_sale"><?php echo __('Sale'); ?></label></p>
     <input type="text" id="retail_sale" name="retail_sale"
            value="<?php if ($retail_sale && !empty($retail_sale)) echo $retail_sale; ?>"/>
 <?php
@@ -82,11 +82,11 @@ function wholesale_box_content($post)
     $wholesale_purchase = get_post_meta($post->ID, 'wholesale_purchase', true);
     $wholesale_sale = get_post_meta($post->ID, 'wholesale_sale', true);
     ?>
-    <p><label for="wholesale_purchase"><?php echo __('Indivative rate'); ?></label></p>
+    <p><label for="wholesale_purchase"><?php echo __('Purchase'); ?></label></p>
     <input type="text" id="wholesale_purchase" name="wholesale_purchase"
            value="<?php if ($wholesale_purchase && !empty($wholesale_purchase)) echo $wholesale_purchase; ?>"/>
 
-    <p><label for="wholesale_sale"><?php echo __('Wholesale sale'); ?></label></p>
+    <p><label for="wholesale_sale"><?php echo __('Sale'); ?></label></p>
     <input type="text" id="wholesale_sale" name="wholesale_sale"
            value="<?php if ($wholesale_sale && !empty($wholesale_sale)) echo $wholesale_sale; ?>">
 <?php

@@ -69,7 +69,7 @@ h2.site-description{
 	padding: 0;
 	color: #6c6c6c;
 	font-weight:400;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	}
 	
 #submenu li a {
@@ -817,4 +817,8 @@ ol.commentlist li ul.children li.depth-2,ol.commentlist li ul.children li.depth-
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom: 1px solid #dadada;
+}
+
+.wholesale-exchange{
+    padding-bottom: 25px;
 }
