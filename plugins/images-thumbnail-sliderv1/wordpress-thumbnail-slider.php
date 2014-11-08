@@ -14,6 +14,46 @@
     add_action('wp_enqueue_scripts', 'thumbnail_slider_load_styles_and_js');
     add_shortcode( 'print_thumbnail_slider', 'print_thumbnail_slider_func' );
 
+	/* Convert hexdec color string to rgb(a) string */
+
+	function hex2rgba($color, $opacity = false) {
+
+		$default = 'rgb(0,0,0)';
+
+		//Return default if no color provided
+		if(empty($color))
+			  return $default; 
+
+		//Sanitize $color if "#" is provided 
+			if ($color[0] == '#' ) {
+				$color = substr( $color, 1 );
+			}
+
+			//Check if color has 6 or 3 characters and get values
+			if (strlen($color) == 6) {
+					$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+			} elseif ( strlen( $color ) == 3 ) {
+					$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+			} else {
+					return $default;
+			}
+
+			//Convert hexadec to rgb
+			$rgb =  array_map('hexdec', $hex);
+
+			//Check if opacity is set(rgba or rgb)
+			if($opacity){
+				if(abs($opacity) > 1)
+					$opacity = 1.0;
+				$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+			} else {
+				$output = 'rgb('.implode(",",$rgb).')';
+			}
+
+			//Return rgb(a) color string
+			return $output;
+	}	
+	
     function thumbnail_slider_load_styles_and_js(){
         if (!is_admin()) {                                                       
 
@@ -1170,7 +1210,7 @@
     } 
     function previewSliderAdmin(){
         $settings=get_option('thumbnail_slider_settings');
-
+		$rgba = hex2rgba($settings['scollerBackground'], 0.2);
     ?>      
     <div style="width: 100%;">  
         <div style="float:left;width:69%;">
@@ -1182,7 +1222,7 @@
                         <div id="post-body-content">
                             <div style="clear: both;"></div>
                             <?php $url = plugin_dir_url(__FILE__);  ?>
-                            <table class="mainTable"  style="background:<?php echo $settings['scollerBackground'];?>">
+                            <table class="mainTable"  style="background:<?php echo $rgba;?>">
                                 <tr>
                                     <?php if($settings['auto']==false){?>
                                         <td class="arrowleft">
@@ -1190,7 +1230,7 @@
                                             <div class="prev previmg"></div>
                                         </td>
                                         <?php } ?>   
-                                    <td id="mainscollertd" style="visibility: hidden;background:<?php echo $settings['scollerBackground'];?>">
+                                    <td id="mainscollertd" style="visibility: hidden;background:<?php echo $rgba;?>">
                                         <div class="mainSliderDiv">
                                             <ul class="sliderUl">
                                                 <?php
@@ -1336,12 +1376,13 @@
 
     function print_thumbnail_slider_func(){
         $settings=get_option('thumbnail_slider_settings');
+		$rgba = hex2rgba($settings['scollerBackground'], 0.2);
         ob_start();
     ?>      
 
     <div style="clear: both;"></div>
     <?php $url = plugin_dir_url(__FILE__);  ?>
-    <table class="mainTable"  style="background:<?php echo $settings['scollerBackground'];?>">
+    <table class="mainTable"  style="background:<?php echo $rgba;?>">
         <tr>
             <?php if($settings['auto']==false){?>
                 <td class="arrowleft">
@@ -1349,7 +1390,7 @@
                     <div class="prev previmg"></div>
                 </td>
                 <?php } ?>   
-            <td id="mainscollertd" style="visibility: hidden;background:<?php echo $settings['scollerBackground'];?>">
+            <td id="mainscollertd" style="visibility: hidden;background:<?php echo $rgba;?>">
                 <div class="mainSliderDiv">
                     <ul class="sliderUl">
                         <?php
