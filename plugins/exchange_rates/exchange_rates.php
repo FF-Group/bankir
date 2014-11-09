@@ -142,7 +142,7 @@ function layout_shortcode()
             <table class="features-table">
                 <tr>
                     <th></th>
-                    <th colspan="2"><?php echo __('Retail'); ?></th>
+                    <th colspan="2"><?php echo __('Indicative rate'); ?></th>
                 </tr>
                 <tr class="second-table-head">
                     <td></td>
@@ -155,8 +155,8 @@ function layout_shortcode()
                     $change_time = get_the_modified_date('d.m.Y');
                     $post_id = get_the_ID();
                     $title = get_the_title($post_id);
-                    $retail_purchase = get_post_meta($post_id, 'retail_purchase', true);
-                    $retail_sale = get_post_meta($post_id, 'retail_sale', true);
+                    $wholesale_purchase = get_post_meta($post_id, 'wholesale_purchase', true);
+                    $wholesale_sale = get_post_meta($post_id, 'wholesale_sale', true);
                     if($output_date < $change_time){
                         $output_date = $change_time;
                     }
@@ -165,8 +165,8 @@ function layout_shortcode()
 
                     <tr>
                         <td><?php echo $title; ?></td>
-                        <td><?php echo $retail_purchase; ?></td>
-                        <td><?php echo $retail_sale; ?></td>
+                        <td><?php echo $wholesale_purchase; ?></td>
+                        <td><?php echo $wholesale_sale; ?></td>
                     </tr>
                 <?php
                 endwhile; ?>
@@ -179,7 +179,7 @@ function layout_shortcode()
             <table class="features-table">
                 <tr>
                     <th></th>
-                    <th colspan="2"><?php echo __('Indicative rate'); ?></th>
+                    <th colspan="2"><?php echo __('Retail'); ?></th>
                 </tr>
                 <tr class="second-table-head">
                     <td></td>
@@ -190,14 +190,16 @@ function layout_shortcode()
                 while ($query->have_posts()) : $query->the_post();
                     $post_id = get_the_ID();
                     $title = get_the_title($post_id);
-                    $wholesale_purchase = get_post_meta($post_id, 'wholesale_purchase', true);
-                    $wholesale_sale = get_post_meta($post_id, 'wholesale_sale', true);
+                    $retail_purchase = get_post_meta($post_id, 'retail_purchase', true);
+                    $retail_sale = get_post_meta($post_id, 'retail_sale', true);
                     ?>
-                    <tr>
-                        <td><?php echo $title; ?></td>
-                        <td><?php echo $wholesale_purchase; ?></td>
-                        <td><?php echo $wholesale_sale; ?></td>
-                    </tr>
+                    <?php if($retail_purchase && !empty($retail_purchase) && $retail_sale && !empty($retail_sale)) { ?>
+                        <tr>
+                            <td><?php echo $title; ?></td>
+                            <td><?php echo $retail_purchase; ?></td>
+                            <td><?php echo $retail_sale; ?></td>
+                        </tr>
+                    <?php } ?>
                     <?php
 
                 endwhile;
@@ -348,15 +350,15 @@ class Exchange_Rates_Contacts_Widget extends WP_Widget
         //Out YouTube subscribing form ?>
         <div class="contact-body-wrapper">
             <div class="contact-address">
-                <p><?php echo __('Нас можно найти по адресу: '); ?><br />
+                <p><strong><?php echo __('Нас можно найти по адресу: '); ?></strong><br />
                     <?php echo $instance['address']; ?></p>
             </div>
-            <div clas="contacts-email">
-                <p><?php echo __('Вопросы и предложения отправляйте на нашу электронную почту:'); ?><br />
+            <div class="contacts-email">
+                <p><strong><?php echo __('Вопросы и предложения отправляйте на нашу электронную почту:'); ?></strong><br />
                     <?php echo $instance['email'];?></p>
             </div>
             <div class="contacts-telephone">
-                <p><?php echo __('Наш телефон: '); ?><br />
+                <p><strong><?php echo __('Наш телефон: '); ?></strong><br />
                 <?php echo $instance['tel']; ?></p>
             </div>
         </div>
