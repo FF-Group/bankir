@@ -14,6 +14,7 @@ add_action('save_post', 'meta_boxes_save');
 add_action('wp_enqueue_scripts', 'style_enable');
 
 add_action('widgets_init', create_function('', 'register_widget( "Google_Maps_Widget" );')); //Widget registration
+add_action('widgets_init', create_function('', 'register_widget( "Exchange_Rates_Contacts_Widget" );')); //Widget registration
 
 add_shortcode('exchange_rates', 'layout_shortcode');
 
@@ -223,7 +224,7 @@ class Google_Maps_Widget extends WP_Widget{
     public function form($instance)
     {
         $title = isset($instance['title']) ? $instance['title'] : __('We locate:'); //Title of the widget
-        $iframe_area = isset($instance['iframe_area']) ? $instance['iframe_area'] : ''; //"Subscribe to my channel" text
+        $iframe_area = isset($instance['iframe_area']) ? $instance['iframe_area'] : '';
 
         //Start the widget settings form
         ?>
@@ -246,7 +247,7 @@ class Google_Maps_Widget extends WP_Widget{
     {
         $instance = array();
         $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        $instance['iframe_area'] = (!empty($new_instance['iframe_area'])) ? $new_instance['iframe_area'] : '' ;//Bla bla com
+        $instance['iframe_area'] = (!empty($new_instance['iframe_area'])) ? $new_instance['iframe_area'] : '' ;
 
         return $instance;
     }
@@ -261,12 +262,105 @@ class Google_Maps_Widget extends WP_Widget{
         if (!empty($title)) {
             echo $before_title . $title . $after_title; //Output title with the before-after tags
         }
-        if(!empty($instance['user_text']) && $instance['title'] != ''){ //If user enter "Subscribe to my channel" text - output it
+        if(!empty($instance['user_text']) && $instance['title'] != ''){
             echo '<div class="gmap_title"><p>' . $instance['user_text'] . '</p></div>';
         }
         //Out YouTube subscribing form
             echo $instance['iframe_area'];
 
+        echo $after_widget; //After widget tags
+
+    }
+}
+
+
+class Exchange_Rates_Contacts_Widget extends WP_Widget
+{
+    public function __construct()
+    {
+        parent::__construct(
+            'Exchange_Rates_Contacts', //Widget identify
+            __('Exchange Rates Contacts'), //Widget name
+            array('description' => __('Create google map'))
+        );
+    }
+
+    public function form($instance)
+    {
+        $title = isset($instance['title']) ? $instance['title'] : ''; //Title of the widget
+        $address = isset($instance['address']) ? $instance['address'] : '';
+        $email = isset($instance['email']) ? $instance['email'] : '';
+        $tel = isset($instance['tel']) ? $instance['tel'] : '';
+
+        //Start the widget settings form
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget title'); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id('title'); ?>"
+                   name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($title); ?>">
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('address')?>"><?php _e('Адрес'); ?></label>
+            <textarea class="widefat" id="<?php echo $this->get_field_id('adderss'); ?>"
+                      name="<?php echo $this->get_field_name('address')?>"><?php echo $address; ?></textarea>
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('email'); ?>"><?php _e('E-mail'); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id('email'); ?>"
+                   name="<?php echo $this->get_field_name('email'); ?>" value="<?php echo esc_attr($email); ?>">
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('tel'); ?>"><?php _e('Телефон'); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id('tel'); ?>"
+                   name="<?php echo $this->get_field_name('tel'); ?>" value="<?php echo esc_attr($tel); ?>">
+        </p>
+
+    <?php
+    }
+
+    public function update($new_instance, $old_instance) //Save widget settings
+    {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+        $instance['email'] = (!empty($new_instance['email'])) ? strip_tags($new_instance['email']) : '';
+        $instance['tel'] = (!empty($new_instance['tel'])) ? strip_tags($new_instance['tel']) : '';
+        $instance['address'] = (!empty($new_instance['address'])) ? $new_instance['address'] : '' ;
+
+        return $instance;
+    }
+
+    public function widget($args, $instance)
+    {
+        extract($args); //Theme arguments for widgets
+
+        $title = apply_filters('widget_title', $instance['title']);
+
+        echo $before_widget; //Before widget tags
+        if (!empty($title)) {
+            echo $before_title . $title . $after_title; //Output title with the before-after tags
+        }
+        if(!empty($instance['user_text']) && $instance['title'] != ''){
+            echo '<div class="contacts-title"><p>' . $instance['user_text'] . '</p></div>';
+        }
+        //Out YouTube subscribing form ?>
+        <div class="contact-body-wrapper">
+            <div class="contact-address">
+                <p><?php echo __('Нас можно найти по адресу: '); ?><br />
+                    <?php echo $instance['address']; ?></p>
+            </div>
+            <div clas="contacts-email">
+                <p><?php echo __('Вопросы и предложения отправляйте на нашу электронную почту:'); ?><br />
+                    <?php echo $instance['email'];?></p>
+            </div>
+            <div class="contacts-telephone">
+                <p><?php echo __('Наш телефон: '); ?><br />
+                <?php echo $instance['tel']; ?></p>
+            </div>
+        </div>
+<?php
         echo $after_widget; //After widget tags
 
     }
