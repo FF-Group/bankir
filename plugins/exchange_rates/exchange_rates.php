@@ -230,7 +230,7 @@ function layout_shortcode() {
 				endwhile;
 				?>
 			</table>
-		</div>
+		</div><br><br>
 	<?php
 	endif;
 	$result = ob_get_clean();
