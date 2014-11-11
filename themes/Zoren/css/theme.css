@@ -756,8 +756,8 @@ ol.commentlist li ul.children li.depth-2,ol.commentlist li ul.children li.depth-
   background: #fafafa;
   background-image: -moz-linear-gradient(top, #fff, #eaeaea, #fff); /* Firefox 3.6 */
   background-image: -webkit-gradient(linear,center bottom,center top,from(#fff),color-stop(0.5, #eaeaea),to(#fff));
-  margin-top:20px;
-  margin-bottom:-30px;
+  margin-top:0px;
+  margin-bottom:0px;
 }
  
 .features-table td
