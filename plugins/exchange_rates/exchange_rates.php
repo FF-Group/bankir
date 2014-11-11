@@ -186,7 +186,7 @@ function layout_shortcode() {
 
 					?>
 
-					<tr>
+					<tr class="features-table-hover">
 						<td><?php echo $title; ?></td>
 						<td class="num_style"><?php echo $wholesale_purchase; ?></td>
 						<td class="num_style"><?php echo $wholesale_sale; ?></td>
@@ -219,7 +219,7 @@ function layout_shortcode() {
 					$retail_sale     = get_post_meta( $post_id, 'retail_sale', true );
 					?>
 					<?php if ( $retail_purchase && !empty( $retail_purchase ) && $retail_sale && !empty( $retail_sale ) ) { ?>
-						<tr>
+						<tr class="features-table-hover">
 							<td><?php echo $title; ?></td>
 							<td class="num_style"><?php echo $retail_purchase; ?></td>
 							<td class="num_style"><?php echo $retail_sale; ?></td>

@@ -797,6 +797,11 @@ ol.commentlist li ul.children li.depth-2,ol.commentlist li ul.children li.depth-
 {
   white-space: nowrap;
 }
+
+.features-table-hover:hover
+{
+	background: #F0F0F0;
+}
  
 .features-table thead td
 {
