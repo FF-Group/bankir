@@ -245,7 +245,7 @@ h1.entry-title{
 	text-transform: uppercase;
 	font-weight: 300;
 	font-size: 32px;
-	padding:50px 40px 20px 40px;
+	padding:20px 40px 0px 40px;
 }
 
 h1.entry-title a:link, h1.entry-title a:visited{
@@ -255,6 +255,7 @@ h1.entry-title a:link, h1.entry-title a:visited{
 	line-height: 1.6;
 	font-family: 'Bitter';
 	/*padding:0px 40px 40px 40px;*/
+	padding-top : 0px;
 }
 
 .taglist ul{
@@ -756,12 +757,12 @@ ol.commentlist li ul.children li.depth-2,ol.commentlist li ul.children li.depth-
   background-image: -moz-linear-gradient(top, #fff, #eaeaea, #fff); /* Firefox 3.6 */
   background-image: -webkit-gradient(linear,center bottom,center top,from(#fff),color-stop(0.5, #eaeaea),to(#fff));
   margin-top:20px;
-  margin-bottom:20px;
+  margin-bottom:-15px;
 }
  
 .features-table td
 {
-  height: 50px;
+  height: 35px;
   padding: 0 20px;
   border-bottom: 1px solid #cdcdcd;
   box-shadow: 0 1px 0 white;

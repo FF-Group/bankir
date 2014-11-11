@@ -188,8 +188,8 @@ function layout_shortcode() {
 
 					<tr>
 						<td><?php echo $title; ?></td>
-						<td><?php echo $wholesale_purchase; ?></td>
-						<td><?php echo $wholesale_sale; ?></td>
+						<td class="num_style"><?php echo $wholesale_purchase; ?></td>
+						<td class="num_style"><?php echo $wholesale_sale; ?></td>
 					</tr>
 				<?php
 				endwhile; ?>
@@ -199,7 +199,7 @@ function layout_shortcode() {
 				</b>
 
 			</table>
-		</div>
+		</div><br>
 		<div class="wholesale-exchange">
 			<table class="features-table">
 				<tr>
@@ -221,8 +221,8 @@ function layout_shortcode() {
 					<?php if ( $retail_purchase && !empty( $retail_purchase ) && $retail_sale && !empty( $retail_sale ) ) { ?>
 						<tr>
 							<td><?php echo $title; ?></td>
-							<td><?php echo $retail_purchase; ?></td>
-							<td><?php echo $retail_sale; ?></td>
+							<td class="num_style"><?php echo $retail_purchase; ?></td>
+							<td class="num_style"><?php echo $retail_sale; ?></td>
 						</tr>
 					<?php } ?>
 				<?php
