@@ -15,7 +15,7 @@ img.scale, img.responsive {
 	
 }
 
-.logo{}
+
 
 h1.site-title{
 	font-size: 36px;
@@ -27,6 +27,20 @@ h1.site-title{
 
 h1.site-title a:link, h1.site-title a:visited{
 	color:#414048;
+}
+
+h1.right-site-title{
+    font-size: 36px;
+    font-weight: 800;
+    width: 150px;
+    text-transform: uppercase;
+    font-family: 'Open sans';
+    margin:-65px 20px 0px 0px;
+    float:right;
+}
+
+h1.right-site-title a:link, h1.right-site-title a:visited{
+    color:#414048;
 }
 
 h2.site-description{

@@ -175,7 +175,7 @@ function layout_shortcode() {
 				<?php
 				$output_date = 0;
 				while ( $query->have_posts() ) : $query->the_post();
-					$change_time        = get_the_modified_date( 'd.m.Y' );
+					$change_time        = get_the_modified_date( 'd.m.Y - H:m' );
 					$post_id            = get_the_ID();
 					$title              = get_the_title( $post_id );
 					$wholesale_purchase = get_post_meta( $post_id, 'wholesale_purchase', true );
